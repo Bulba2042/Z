@@ -1,0 +1,37 @@
+#include <iostream>
+#include <map>
+using namespace std;
+
+int main()
+{
+    map <int, int> house;
+    map <int, int> :: iterator it;
+    cout << "Введите кол-во домов: "; int n; cin >> n;
+    for (int i = 1; i <= n; i++){
+        cout << "Введите кол-во жильцов дома "<< i << "): "; int a; cin >> a;
+        house[i] = a;
+    }
+    cout <<"Введите команду: "; int c; cin >> c;
+    if (c == 0){
+        cout << "Введите номер дома: "; int d; cin >> d;
+        it = house.find(d);
+        cout << "В доме номер " <<  d << ") кол-во жильцов: " << it->second << endl;
+    }
+    if (c == 1){
+        cout << "Введите дом который надо удалить: "; int d; cin >> d;
+        it = house.find(d);
+        house.erase(it);
+    }
+    if (c == 2){
+        int s; s = house.size();
+        s++;
+        cout <<"Введите кол-во жильцов, нового дома: "; int d; cin >> d;
+        house.insert(make_pair(s, d));
+    }
+    it = house.begin();
+    for (int i = 1; it != house.end(); it++, i++){
+        cout << "В доме номер " <<  i << ") кол-во жильцов: " << it->second << endl;
+    }
+
+    return 0; system("pause");
+}
