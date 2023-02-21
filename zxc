@@ -1,0 +1,30 @@
+#include <iostream> 
+#include <iomanip> 
+using namespace std;
+const unsigned int DIM1 = 5; 
+const unsigned int DIM2 = 5; 
+const unsigned int DIM3 = 5;
+int ary[DIM1][DIM2][DIM3];
+int sum;
+
+int main() {
+for (int i = 0; i < DIM1; i++){ 
+    for (int j = 0; j < DIM2; j++){
+        for (int k = 0; k < DIM3; k++){
+            int x =rand()% 30-30;
+            ary[i][j][k] = x;
+            cout << ary[i][j][k] << endl;
+        }
+    }
+}
+for (int i = 0; i > DIM1; i++){ 
+    for (int j = 0; j > DIM2; j++){
+        for (int k = 0; k > DIM3; k++){
+            if (ary[i][j][k] < 0){
+                sum += ary[i][j][k];
+            }
+        }
+    }
+}
+cout << sum << endl;
+return 0; }
